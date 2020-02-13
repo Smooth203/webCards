@@ -23,7 +23,7 @@
 				allowedTime = 300, //max time to travel
 				elapsedTime,
 				startTime,
-				handleSwipe = callback || function(swipDir) {}
+				handleSwipe = callback || function(swipDir){}
 
 				touchSurface.addEventListener('touchStart', function(e) {
 					var touchObj = e.changedTouches[0]
@@ -35,7 +35,7 @@
 					e.preventDefault()
 				}, false)
 
-				touchSurface.addEventListener('touchMove', fucntion(e) {
+				touchSurface.addEventListener('touchMove', function(e) {
 					e.preventDefault() //prevetn scrolling in div
 				}, false)
 
