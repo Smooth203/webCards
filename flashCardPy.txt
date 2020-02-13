@@ -1,0 +1,8 @@
+
+-- list of questions w/ answers --
+
+-- ask user what topic --
+
+-- select Q/A set --
+
+-- flashcards! --

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Web Cards</title>
+
+	</head>
+	<body>
+
+		<div id="box" style="width: 100vw; height: 100vh; border: solid;"></div>
+
+		<script type="text/javascript">
+			function swipeDetect(el, callback)
+			{
+				var touchSurface = el,
+				swipeDir,
+				startX,
+				startY,
+				distX,
+				distY,
+				thresh = 150, //Min distance to be considered a swipe
+				restraint = 100, //max dist in perp dir
+				allowedTime = 300, //max time to travel
+				elapsedTime,
+				startTime,
+				handleSwipe = callback || function(swipDir) {}
+
+				touchSurface.addEventListener('touchStart', function(e) {
+					var touchObj = e.changedTouches[0]
+					swipeDir = 'none'
+					dist = 0
+					startX = touchObj.pageX
+					startY = touchObj.pageY
+					startTime = new Date().getTime()
+					e.preventDefault()
+				}, false)
+
+				touchSurface.addEventListener('touchMove', fucntion(e) {
+					e.preventDefault() //prevetn scrolling in div
+				}, false)
+
+				touchSurface.addEventListener('touchEnd', function(e) {
+					var touchObj = e.changedTouches[0]
+					distX = touchObj.pageX - startX //H dist
+					distY = touchObj.pageY - startY //V dist
+					elapsedTime = new Date().getTime() - startTime // time elapsed
+					if (elapsedTime <= allowedTime)
+					{
+						if (Math.abs(distX) >= thresh && Math.abs(distY) <= restraint)
+						{
+							swipeDir = (distX < 0)? 'left' : 'right'
+						}
+						else if (Math.abs(distY) >= thresh && Math.abs(distX) <= restraint)
+						{
+							swipeDir = (distY < 0)? 'up' : 'down'
+						}
+					}
+					handleSwipe(swipeDir)
+					e.preventDefault()
+				}, false)
+			}
+
+			var el = document.getElementById('box')
+			swipeDetect(el, function(swipeDir) {
+				if (swipeDir == 'left')
+					alert('LEFT')
+			})
+
+		</script>
+
+	</body>
+</html>
