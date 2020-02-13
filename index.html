@@ -10,6 +10,8 @@
 		<div id="box" style="width: 100vw; height: 100vh; border: solid;"></div>
 
 		<script type="text/javascript">
+			var el = document.getElementById('box')
+
 			function swipeDetect(el, callback)
 			{
 				var touchSurface = el,
@@ -25,6 +27,8 @@
 				startTime,
 				handleSwipe = callback || function(swipDir){}
 
+				el.innerHTML = '1'
+
 				touchSurface.addEventListener('touchStart', function(e) {
 					var touchObj = e.changedTouches[0]
 					swipeDir = 'none'
@@ -32,10 +36,16 @@
 					startX = touchObj.pageX
 					startY = touchObj.pageY
 					startTime = new Date().getTime()
+
+					el.innerHTML = '2'
+
 					e.preventDefault()
 				}, false)
 
 				touchSurface.addEventListener('touchMove', function(e) {
+
+					el.innerHTML = '3'
+
 					e.preventDefault() //prevetn scrolling in div
 				}, false)
 
@@ -56,11 +66,13 @@
 						}
 					}
 					handleSwipe(swipeDir)
+
+					el.innerHTML = '4'
+
 					e.preventDefault()
 				}, false)
 			}
-
-			var el = document.getElementById('box')
+			
 			swipeDetect(el, function(swipeDir) {
 				if (swipeDir == 'left')
 					el.innerHTML = 'LEFT'
