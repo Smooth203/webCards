@@ -27,7 +27,7 @@
 				startTime,
 				handleSwipe = callback || function(swipDir){}
 
-				el.innerHTML = '1'
+				el.innerHTML = Date()
 
 				touchSurface.addEventListener('touchStart', function(e) {
 					var touchObj = e.changedTouches[0]
@@ -72,12 +72,13 @@
 					e.preventDefault()
 				}, false)
 			}
-			
+
 			swipeDetect(el, function(swipeDir) {
 				if (swipeDir == 'left')
+				{
 					el.innerHTML = 'LEFT'
+				}
 			})
-
 		</script>
 
 	</body>
