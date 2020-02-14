@@ -24,8 +24,8 @@ a
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	width: 100px;
-	height: 100px;
+	width: 7.5vw;
+	height: 7.5vw;
 }
 
 .buttonTxt
@@ -59,6 +59,7 @@ a
 	top: 100vh;
 	width: 300vw;
 	height: 100vh;
+	border: 0.1vw solid;
 }
 
 #Organic
@@ -68,6 +69,7 @@ a
 	top: 200vh;
 	width: 300vw;
 	height: 100vh;
+	border: 0.1vw solid;
 }
 
 #CiS2
@@ -75,6 +77,9 @@ a
 	position: absolute;
 	left: 0vw;
 	top: 300vh;
+	width: 7.5vw;
+	height: 7.5vw;
 	width: 300vw;
 	height: 100vh;
+	border: 0.1vw solid;
 }
