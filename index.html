@@ -4,81 +4,74 @@
 
 		<title>Web Cards</title>
 
+		<link rel="stylesheet" media="screen and (min-width: 801px)" href="styleM.css">
+		<link rel="stylesheet" media="screen and (max-width: 800px)" href="styleM.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 	</head>
 	<body>
 
-		<div id="box" style="width: 100vw; height: 100vh; border: solid;"></div>
+		<div id="home">
+			<a href="#Analytical" id="b1" class="button">
+				<div class="buttonTxt">
+					Analytical
+				</div>
+			</a>
+			<a href="#Organic" id="b2" class="button">
+				<div class="buttonTxt">
+					Organic
+				</div>
+			</a>
+			<a href="#CiS2" id="b3" class="button">
+				<div class="buttonTxt">
+					Chemistry in Society 2
+				</div>
+			</a>
+		</div>
+
+		<div id="Analytical">
+			<a href="#EC" id="b1" class="button">
+				<div class="buttonTxt">
+					Electrochemistry
+				</div>
+			</a>
+			<a href="#SM" id="b2" class="button">
+				<div class="buttonTxt">
+					Separation Methods
+				</div>
+			</a>
+			<a href="#EA" id="b3" class="button">
+				<div class="buttonTxt">
+					Elemental Analysis
+				</div>
+			</a>
+		</div>
+
+		<div id="Organic">
+			<a href="#enolates" id="b1" class="button">
+				<div class="buttonTxt">
+					Enolates
+				</div>
+			</a>
+			<a href="#CA" id="b2" class="button">
+				<div class="buttonTxt">
+					Conjugative Additions
+				</div>
+			</a>
+			<a href="#E&I" id="b3" class="button">
+				<div class="buttonTxt">
+					Enamines & Imines
+				</div>
+			</a>
+		</div>
+
+		<div id="CiS2">
+			
+		</div>
 
 		<script type="text/javascript">
-			var el = document.getElementById('box')
-
-			function swipeDetect(el, callback)
-			{
-				var touchSurface = el,
-				swipeDir,
-				startX,
-				startY,
-				distX,
-				distY,
-				thresh = 150, //Min distance to be considered a swipe
-				restraint = 100, //max dist in perp dir
-				allowedTime = 300, //max time to travel
-				elapsedTime,
-				startTime,
-				handleSwipe = callback || function(swipDir){}
-
-				el.innerHTML = Date()
-
-				touchSurface.addEventListener('touchStart', function(e) {
-					var touchObj = e.changedTouches[0]
-					swipeDir = 'none'
-					dist = 0
-					startX = touchObj.pageX
-					startY = touchObj.pageY
-					startTime = new Date().getTime()
-
-					el.innerHTML = '2'
-
-					e.preventDefault()
-				}, false)
-
-				touchSurface.addEventListener('touchMove', function(e) {
-
-					el.innerHTML = '3'
-
-					e.preventDefault() //prevetn scrolling in div
-				}, false)
-
-				touchSurface.addEventListener('touchEnd', function(e) {
-					var touchObj = e.changedTouches[0]
-					distX = touchObj.pageX - startX //H dist
-					distY = touchObj.pageY - startY //V dist
-					elapsedTime = new Date().getTime() - startTime // time elapsed
-					if (elapsedTime <= allowedTime)
-					{
-						if (Math.abs(distX) >= thresh && Math.abs(distY) <= restraint)
-						{
-							swipeDir = (distX < 0)? 'left' : 'right'
-						}
-						else if (Math.abs(distY) >= thresh && Math.abs(distX) <= restraint)
-						{
-							swipeDir = (distY < 0)? 'up' : 'down'
-						}
-					}
-					handleSwipe(swipeDir)
-
-					el.innerHTML = '4'
-
-					e.preventDefault()
-				}, false)
-			}
-
-			swipeDetect(el, function(swipeDir) {
-				if (swipeDir == 'left')
-				{
-					el.innerHTML = 'LEFT'
-				}
-			})
+			
 		</script>
 
 	</body>
