@@ -21,6 +21,7 @@
 		<script type="text/javascript">
 
 			text = document.getElementById('text');
+			buttons = document.getElementsByClassName('button');
 			var questions = [];
 			var answers = [];
 			var currentQ = 0;
@@ -64,6 +65,10 @@
 			{
 				nextQ();
 				document.getElementById('start').style.display = 'none';
+				for (var i = 0; i <= 3; i++)
+				{
+					buttons[i].style.display = 'inline';
+				}
 			}
 
 			function nextQ()

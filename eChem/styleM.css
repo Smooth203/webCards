@@ -9,7 +9,7 @@
 #start
 {
 	position: absolute;
-	top: 10vh;
+	top: 40vh;
 	left: 50vw;
 	width: 25vw;
 	height: 5vh;
@@ -39,4 +39,5 @@
 	top: 50vh;
 	transform: translate(-50%, -50%);
 	border: 0.1vw solid;
+	display: none
 }
