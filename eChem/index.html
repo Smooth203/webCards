@@ -15,12 +15,7 @@
 		<p id="test"></p>
 
 		<script type="text/javascript">
-
-			function addQs()
-			{
-				a = [q = "What equation links &Delta;G with lnK?", ans = "&Delta;G = -RTlnK"]
-			}
-
+			
 			function getText(){
 				// read text from URL location
 				var request = new XMLHttpRequest();
@@ -28,19 +23,20 @@
 				request.send(null);
 				request.onreadystatechange = function () 
 				{
-					console.log(request.readyState);
+
 					if (request.readyState === 4 && request.status === 200) 
 					{
+
 						var type = request.getResponseHeader('Content-Type');
 						if (type.indexOf("text") !== 1)
 						{
-							return request.responseText;
+							document.getElementById('test').innerHTML = request.responseText;
 						}
 					}
 				}
 			}
 
-			document.getElementById('test').innerHTML = getText();
+			getText();
 
 		</script>
 
