@@ -1,0 +1,42 @@
+#text
+{
+	position: absolute;
+	top: 25vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+}
+
+#start
+{
+	position: absolute;
+	top: 10vh;
+	left: 50vw;
+	width: 25vw;
+	height: 5vh;
+	transform: translate(-50%, -50%);
+	border: 0.1vw solid;
+	text-align: center;
+}
+
+#getAns
+{
+	left: 50vw;
+}
+
+#nextQ
+{
+	left: 75vw;
+}
+
+#prevQ
+{
+	left: 25vw;
+}
+
+.button
+{
+	position: absolute;
+	top: 50vh;
+	transform: translate(-50%, -50%);
+	border: 0.1vw solid;
+}

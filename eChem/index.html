@@ -10,11 +10,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 	</head>
-	<body>
+	<body onload="">
 
-		<p id="test"></p>
+		<p id="start" onclick="start()">Start</p>
+		<p id="text"></p>
+		<div id="getAns" class="button" onclick="getAns()">Reveal Answer</div>
+		<div id="nextQ" class="button" onclick="nextQ()">Next Question</div>
+		<div id="prevQ" class="button" onclick="prevQ()">Previous Question</div>
 
 		<script type="text/javascript">
+
+			text = document.getElementById('text');
+			var questions = [];
+			var answers = [];
+			var currentQ = 0;
+			var showAns = false;
 
 			function getText()
 			{
@@ -33,11 +43,81 @@
 						{
 							var qList = request.responseText;
 							var QA = qList.split("\n");
-							console.log(QA)
-						};
+
+							var tmp = [];
+							for (var i = 0; i < QA.length; i++)
+							{
+								newQ = QA[i].split(",");
+								tmp.push(newQ);
+							}
+							for (var i = 0; i < tmp.length; i++)
+							{
+								questions.push(tmp[i][0]);
+								answers.push(tmp[i][1]);
+							}
+						}
 					}
 				}
 			}
+
+			function start()
+			{
+				nextQ();
+				document.getElementById('start').style.display = 'none';
+			}
+
+			function nextQ()
+			{
+				currentQ += 1;
+				getAns(true);
+			}
+
+			function prevQ()
+			{
+				currentQ -= 1;
+				getAns(true);
+			}
+
+			function checkQ()
+			{
+				if (currentQ > questions.length)
+				{
+					currentQ = 1;
+				}
+				else if (currentQ == 0)
+				{
+					currentQ = questions.length;
+				}
+
+				for (var i = 1; i <= questions.length; i++)
+				{
+					if (i == currentQ)
+					{
+						if (showAns)
+						{
+							text.innerHTML = answers[i-1];
+						}
+						else if (!showAns)
+						{
+							text.innerHTML = questions[i-1];
+						}	
+					}
+				}
+				console.log(currentQ);
+				console.log(showAns);
+			}
+
+			function getAns(forceOff)
+			{
+				showAns = !showAns;
+				if (forceOff == true)
+				{
+					showAns = false;
+				}
+				checkQ();
+			}
+
+
 
 			getText();
 
