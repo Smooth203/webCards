@@ -1,87 +1,59 @@
 html
 {
-	overflow-y: hidden;
-	position: absolute;
+	font-size: 5vw;
+	text-align: center;
 }
 
-a
-{
-	text-decoration: none;
-	color: black;
-}
-
-#home
+#text
 {
 	position: absolute;
-	top: 0vh;
-	left: 0vw;
-	width: 300vw;
-	height: 100vh;
-	border: 0.1vw solid blue;
+	top: 25vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	font-size: 5.5vw;
+}
+
+#start
+{
+	position: absolute;
+	top: 40vh;
+	left: 50vw;
+	width: 25vw;
+	height: 5vh;
+	transform: translate(-50%, -50%);
+	border: 0.1vw solid;
+	text-align: center;
+}
+
+#qNum
+{
+	position: absolute;
+	top: 10vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+}
+
+#getAns
+{
+	top: 75vh;
+	left: 50vw;
+}
+
+#nextQ
+{
+	left: 75vw;
+}
+
+#prevQ
+{
+	left: 25vw;
 }
 
 .button
 {
-	border: 0.1vw solid;
 	position: absolute;
-	top: 50%;
+	top: 50vh;
 	transform: translate(-50%, -50%);
-	width: 7.5vw;
-	height: 7.5vw;
-}
-
-.buttonTxt
-{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-}
-
-#b1
-{
-	left: 50vw;
-}
-
-#b2
-{
-	left: 150vw;
-}
-
-#b3
-{
-	left: 250vw;
-}
-
-#Analytical
-{
-	position: absolute;
-	left: 0vw;
-	top: 101vh;
-	width: 300vw;
-	height: 100vh;
 	border: 0.1vw solid;
-}
-
-#Organic
-{
-	position: absolute;
-	left: 0vw;
-	top: 201vh;
-	width: 300vw;
-	height: 100vh;
-	border: 0.1vw solid;
-}
-
-#CiS2
-{
-	position: absolute;
-	left: 0vw;
-	top: 301vh;
-	width: 7.5vw;
-	height: 7.5vw;
-	width: 300vw;
-	height: 100vh;
-	border: 0.1vw solid;
+	display: none
 }
