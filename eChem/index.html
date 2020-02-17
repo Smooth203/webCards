@@ -15,8 +15,9 @@
 		<p id="test"></p>
 
 		<script type="text/javascript">
-			
-			function getText(){
+
+			function getText()
+			{
 				// read text from URL location
 				var request = new XMLHttpRequest();
 				request.open('GET', 'https://smooth203.github.io/webCards/eChem/qList.bt', true);
@@ -30,8 +31,10 @@
 						var type = request.getResponseHeader('Content-Type');
 						if (type.indexOf("text") !== 1)
 						{
-							document.getElementById('test').innerHTML = request.responseText;
-						}
+							var qList = request.responseText;
+							var QA = qList.split("\n");
+							console.log(QA)
+						};
 					}
 				}
 			}
