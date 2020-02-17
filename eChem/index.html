@@ -14,6 +14,7 @@
 
 		<p id="start" onclick="start()">Start</p>
 		<p id="text"></p>
+		<p id="qNum"></p>
 		<div id="getAns" class="button" onclick="getAns()">Reveal Answer</div>
 		<div id="nextQ" class="button" onclick="nextQ()">Next Question</div>
 		<div id="prevQ" class="button" onclick="prevQ()">Previous Question</div>
@@ -21,6 +22,7 @@
 		<script type="text/javascript">
 
 			text = document.getElementById('text');
+			qNum = document.getElementById('qNum');
 			buttons = document.getElementsByClassName('button');
 			var questions = [];
 			var answers = [];
@@ -108,6 +110,7 @@
 						}	
 					}
 				}
+				qNum.innerHTML = "Question " + currentQ + " out of " + questions.length;
 				console.log(currentQ);
 				console.log(showAns);
 			}
