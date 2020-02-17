@@ -12,17 +12,35 @@
 	</head>
 	<body>
 
-		
+		<p id="test"></p>
 
 		<script type="text/javascript">
 
 			function addQs()
 			{
-				questions[]
 				a = [q = "What equation links &Delta;G with lnK?", ans = "&Delta;G = -RTlnK"]
-
-				qu
 			}
+
+			function getText(){
+				// read text from URL location
+				var request = new XMLHttpRequest();
+				request.open('GET', 'https://smooth203.github.io/webCards/eChem/qList.bt', true);
+				request.send(null);
+				request.onreadystatechange = function () 
+				{
+					console.log(request.readyState);
+					if (request.readyState === 4 && request.status === 200) 
+					{
+						var type = request.getResponseHeader('Content-Type');
+						if (type.indexOf("text") !== 1)
+						{
+							return request.responseText;
+						}
+					}
+				}
+			}
+
+			document.getElementById('test').innerHTML = getText();
 
 		</script>
 
