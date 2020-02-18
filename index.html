@@ -15,6 +15,7 @@
 		<div id="topBar">
 			<p id="EC" onclick="changePack('eChem')">Electrochemistry</p>
 			<p id="SM" onclick="changePack('sepMethods')">Separation Methods</p>
+			<p id="enol" onclick="changePack('enolate')">Enolates</p>
 		</div>
 
 		<p id="start" onclick="start()">Start</p>
@@ -70,14 +71,31 @@
 				}
 			}
 
+			function clearQ()
+			{
+				questions = [];
+				answers = [];
+				for (var i = 0; i <= 2; i++)
+				{
+					buttons[i].style.display = 'none';
+				}
+				text.style.display = 'none';
+				qNum.style.display = 'none';
+				document.getElementById('start').style.display = 'inline';
+				currentQ = 0;
+			}
+
 			function start()
 			{
 				nextQ();
 				document.getElementById('start').style.display = 'none';
-				for (var i = 0; i <= 3; i++)
+				for (var i = 0; i <= 2; i++)
 				{
 					buttons[i].style.display = 'inline';
 				}
+				console.log(buttons);
+				text.style.display = 'inline';
+				qNum.style.display = 'inline';
 			}
 
 			function nextQ()
@@ -118,8 +136,6 @@
 					}
 				}
 				qNum.innerHTML = "Question " + currentQ + " out of " + questions.length;
-				console.log(currentQ);
-				console.log(showAns);
 			}
 
 			function getAns(forceOff)
@@ -135,7 +151,11 @@
 			function changePack(to)
 			{
 				selectedPack = to;
+				clearQ();
 				getText();
+				console.log("Pack changed to " + selectedPack);
+				checkQ();
+				getAns(true);
 			}
 
 			getText();
